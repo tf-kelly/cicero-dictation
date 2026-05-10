@@ -80,9 +80,6 @@
       margin-right: auto;
     }
 
-    /* ============================================================
-       MASTHEAD
-       ============================================================ */
     header { padding: 4rem 0 2rem; }
 
     .epigraph {
@@ -134,9 +131,6 @@
     nav.tools a { color: var(--link); margin-right: 1.5rem; }
     @supports (gap: 1rem) { nav.tools a { margin-right: 0; } }
 
-    /* ============================================================
-       LINKS
-       ============================================================ */
     a {
       color: var(--link);
       text-decoration: none;
@@ -146,9 +140,6 @@
     a:hover, a:focus { color: var(--link-hover); border-bottom-color: currentColor; }
     a:focus-visible { outline: 2px solid var(--link-hover); outline-offset: 2px; border-radius: 1px; }
 
-    /* ============================================================
-       SECTIONS / HEADINGS
-       ============================================================ */
     section { margin: 3.5rem 0; }
 
     h2 {
@@ -187,7 +178,6 @@
     em { font-style: italic; }
     strong { font-weight: 700; }
 
-    /* Lead paragraph with drop cap */
     .lead { font-size: 1.15rem; line-height: 1.62; color: var(--ink); }
     .lead::first-letter {
       float: left;
@@ -198,19 +188,10 @@
       color: var(--rubric);
     }
 
-    /* ============================================================
-       METADATA — flowing entries with inline commentary
-       ============================================================ */
     .metadata-intro { color: var(--ink-soft); }
 
-    .entries {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .entries > li {
-      margin: 0 0 1.2rem;
-    }
+    .entries { list-style: none; padding: 0; margin: 0; }
+    .entries > li { margin: 0 0 1.2rem; }
 
     .entry-evidence {
       color: var(--ink-soft);
@@ -236,9 +217,6 @@
 
     .letter-id { white-space: nowrap; }
 
-    /* ============================================================
-       FIGURE
-       ============================================================ */
     figure { margin: 2rem 0; padding: 0; }
     figure img {
       width: 100%; height: auto; display: block;
@@ -250,13 +228,7 @@
     }
     figcaption strong { color: var(--ink); font-weight: 700; }
 
-    /* ============================================================
-       BIBLIOGRAPHY
-       ============================================================ */
-    .bibliography {
-      font-size: 0.96rem;
-      line-height: 1.55;
-    }
+    .bibliography { font-size: 0.96rem; line-height: 1.55; }
     .bib-entry {
       padding-left: 2em;
       text-indent: -2em;
@@ -264,9 +236,6 @@
     }
     .bib-entry a { word-break: break-word; }
 
-    /* ============================================================
-       DOWNLOADS
-       ============================================================ */
     .downloads { list-style: none; padding: 0; margin: 1rem 0; }
     .downloads li {
       padding: 0.7rem 0;
@@ -281,9 +250,6 @@
       color: var(--ink-faint); font-variant-numeric: lining-nums;
     }
 
-    /* ============================================================
-       CODE / NOTICE / ORNAMENT / FOOTER
-       ============================================================ */
     pre {
       background: var(--code-bg);
       padding: 1rem 1.2rem;
@@ -312,24 +278,6 @@
     .notice p { margin: 0; }
     .notice p + p { margin-top: 0.5rem; }
 
-    .cast {
-      padding: 1rem 1.3rem;
-      background: var(--paper-tint);
-      border-left: 3px solid var(--rule);
-      font-size: 0.95rem; line-height: 1.55;
-      margin: 1.5rem 0;
-    }
-    .cast h4 {
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--ink-faint);
-      margin: 0 0 0.6rem;
-    }
-    .cast p { margin: 0.3rem 0; }
-    .cast em { font-style: italic; }
-
     .ornament {
       text-align: left;
       color: var(--ink-faint);
@@ -337,16 +285,6 @@
       letter-spacing: 0.4em;
       margin: 3rem 0;
     }
-
-    footer {
-      font-size: 0.88rem;
-      color: var(--ink-faint);
-      border-top: 1px solid var(--rule);
-      margin-top: 5rem;
-      padding: 2rem 0 4rem;
-      line-height: 1.55;
-    }
-    footer p { margin: 0.3rem 0; }
 
     @media (max-width: 600px) {
       html { font-size: 17px; }
@@ -385,7 +323,6 @@
   <nav class="tools" aria-label="page sections">
     <a href="#overview">Overview</a>
     <a href="#metadata">Letter metadata</a>
-    <a href="#figure">Figure&nbsp;1</a>
     <a href="#bibliography">Bibliography</a>
     <a href="#materials">Materials</a>
     <a href="#cite">Cite</a>
@@ -398,8 +335,8 @@
   <h2>Overview</h2>
 
   <p>
-    The handout for the talk, the letter 'metadata' (evidence for individual letters being classified as dictated or autograph), and
-    underlying data are all available below.
+    The handout for the talk, the letter ‘metadata’ (evidence for individual letters being
+    classified as dictated or autograph), and underlying data are all available below.
   </p>
 
   <p style="margin-top: 1.4rem;">
@@ -417,9 +354,9 @@
   <p class="metadata-intro">
     The labelled corpus is derived from internal evidence within Cicero’s letters
     <em>ad Atticum</em>: explicit metalinguistic statements about handwriting or
-    dictation, and inferences from context. <strong>Each letter ID links to the full text on the
-    <a href="https://scaife.perseus.org/library/urn:cts:latinLit:phi0474.phi057/">Scaife
-    Viewer</a>.
+    dictation, and inferences from context. <strong>Each letter ID links to the full
+    text on the <a href="https://scaife.perseus.org/library/urn:cts:latinLit:phi0474.phi057/">Scaife
+    Viewer</a>.</strong>
   </p>
 
   <h3>Table 1 · Autograph letters</h3>
@@ -432,7 +369,7 @@
         <a class="ref" href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:2.23.1/">2.23.1</a>:
         <em>numquam ante arbitror te epistulam meam legisse nisi mea manu scriptam.</em>
       </p>
-      <p class="entry-note">Cicero states that 2.23 is the first letter not written in his own hand. The strong implication is that all — or at least the vast majority — of earlier letters were autographed. 1.10 is an apparent outlier based on its lingusitic profile.</p>
+      <p class="entry-note">Cicero states that 2.23 is the first letter not written in his own hand. The strong implication is that all — or at least the vast majority — of earlier letters were autographed. 1.10 is an apparent outlier based on its linguistic profile.</p>
     </li>
 
     <li>
@@ -631,42 +568,12 @@
 
   <p style="margin-top: 2rem;">
     Beyond these labelled groups, a further 368 letters are unclassified. They form the
-    <span class="sc">rest</span> category in Figure&nbsp;1 below — a pool against which
-    the <span class="sc">auto</span>&nbsp;/&nbsp;<span class="sc">dict</span> signature
+    <span class="sc">rest</span> category — a pool against which the
+    <span class="sc">auto</span>&nbsp;/&nbsp;<span class="sc">dict</span> signature
     is tested.
   </p>
 
-
-
 </section>
-
-<div class="ornament">·  ·  ·</div>
-
-
-<!--
-<section id="figure">
-  <h2>Figure 1 · Syntactic separation</h2>
-
-  <p>
-    Distribution of <strong>LP</strong> (residualised proportion of sentences with the
-    main predicate in the final third) for the three letter groups. LP is controlled for letter length; the <span class="sc">auto</span> group gives the regression baseline,
-    so positive values indicate a more periodic profile than expected for a letter of
-    that length.
-  </p>
-
-  <figure>
-    <img src="assets/figure1-1.png" alt="Density plot showing the distribution of LP values for AUTO, DICT, and REST letter groups. AUTO peaks slightly above zero; DICT peaks around -0.10; REST is broadly distributed.">
-    <figcaption>
-      <strong>Figure&nbsp;1.</strong> KDE density of LP across letter groups, with
-      letter-level points below.
-      <span class="sc">auto</span> (n&nbsp;=&nbsp;46) peaks just above zero;
-      <span class="sc">dict</span> (n&nbsp;=&nbsp;19) peaks around −0.10;
-      <span class="sc">rest</span> (n&nbsp;=&nbsp;368) is broadly distributed.
-      <a href="assets/figure1.pdf">PDF version</a>.
-    </figcaption>
-  </figure>
-</section>
--->
 
 <div class="ornament">·  ·  ·</div>
 
@@ -742,42 +649,21 @@
 <section id="materials">
   <h2>Materials</h2>
 
-  <p>
-  <!--  The handout, full letter metadata, methodological appendix, and replication code &amp;
-    data are all available below. -->
-    
-    <!--Code in the replication archive is released under the
-    MIT licence; data is released under CC-BY 4.0; the texts of Cicero’s letters used in
-    the analysis come from the Perseus Digital Library and remain under their licensing
-    terms. Please cite the talk as set out under <a href="#cite">Cite</a>. -->
-  </p>
-
   <ul class="downloads">
     <li>
-      <span><strong><a href="assets/handout.pdf">talk handout</a></strong>
-        
-      </span>
+      <span><strong><a href="assets/handout.pdf">Talk handout</a></strong></span>
       <span class="filetype">PDF · 50&nbsp;KB</span>
     </li>
     <li>
-      <span><strong><a href="assets/letter-metadata.pdf">Letter metadata</a></strong>
-       
-      </span>
+      <span><strong><a href="assets/letter-metadata.pdf">Letter metadata</a></strong></span>
       <span class="filetype">PDF · 75&nbsp;KB</span>
     </li>
     <li>
-      <span class="filetype">PDF · 154&nbsp;KB</span>
-    </li>
-    <li>
-      <span><strong><a href="assets/replication.zip">Replication code &amp; data</a></strong>
-      </span>
+      <span><strong><a href="assets/replication.zip">Replication code &amp; data</a></strong></span>
       <span class="filetype">ZIP · 1.1&nbsp;MB</span>
-    </li>
-    <li>
     </li>
   </ul>
 
- 
 </section>
 
 <div class="ornament">·  ·  ·</div>
@@ -802,22 +688,5 @@
 
 </main>
 
-<!--
-<footer>
-  <p>
-    Companion site for a talk by <strong>Thomas Kelly</strong> (University of Cambridge),
-    given at <em>Writing from the Margins</em>, Durham University, 15 May 2026.
-  </p>
-  <p>
-    Source texts via the
-    <a href="https://scaife.perseus.org/library/urn:cts:latinLit:phi0474.phi057/">Scaife Viewer</a>
-    (Perseus Digital Library / Open Greek &amp; Latin).
-    Set in <a href="https://fonts.google.com/specimen/Cardo">Cardo</a> by David Perry.
-  </p>
-  <p style="margin-top: 1rem;">
-    Last updated: <time datetime="2026-05-10">10 May 2026</time>.
-  </p>
-</footer>
--->
 </body>
 </html>
