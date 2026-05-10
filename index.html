@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conference handout supplement: Can we see hints of dictation in the language of Cicero's letters? Thomas Kelly, University of Cambridge.">
+  <title>Hints of dictation in Cicero’s letters · Thomas Kelly</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper:        #FBF8F1;
+      --paper-tint:   #F5EFDF;
+      --ink:          #2A231C;
+      --ink-soft:     #5A4F44;
+      --ink-faint:    #8B7F6E;
+      --rule:         #D8CDB7;
+      --rule-soft:    #E8DFCB;
+      --link:         #6B3F1D;
+      --link-hover:   #8B2613;
+      --rubric:       #8B2613;
+      --hl:           #F1E8CD;
+      --code-bg:      rgba(43, 35, 28, 0.05);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper:        #1A1612;
+        --paper-tint:   #221C16;
+        --ink:          #EAE0CD;
+        --ink-soft:     #B5A892;
+        --ink-faint:    #8C7E68;
+        --rule:         #3A3225;
+        --rule-soft:    #2D2619;
+        --link:         #D4A472;
+        --link-hover:   #E89866;
+        --rubric:       #E89866;
+        --hl:           #2D2418;
+        --code-bg:      rgba(255, 248, 230, 0.06);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+      scroll-padding-top: 2rem;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 1.5rem;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Cardo', 'EB Garamond', 'Adobe Garamond Pro', Georgia, 'Times New Roman', serif;
+      font-size: 1.125rem;
+      line-height: 1.62;
+      font-feature-settings: 'liga' 1, 'kern' 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.4;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0 0.30 0 0 0 0.025 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    main, header, footer {
+      max-width: 740px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================================
+       MASTHEAD
+       ============================================================ */
+    header { padding: 4rem 0 2rem; }
+
+    .epigraph {
+      font-style: italic;
+      color: var(--ink-faint);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 2.5rem;
+      max-width: 28em;
+    }
+    .epigraph cite {
+      display: block;
+      margin-top: 0.4rem;
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0 0 1.4rem;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+      max-width: 16em;
+    }
+
+    .byline { font-size: 1.1rem; margin: 0; color: var(--ink-soft); }
+    .byline strong { font-weight: 700; color: var(--ink); }
+
+    .venue {
+      font-style: italic;
+      color: var(--ink-soft);
+      margin: 0.3rem 0 0;
+      font-size: 1.05rem;
+    }
+
+    nav.tools {
+      margin: 2.5rem 0 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 1.5rem;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    nav.tools a { color: var(--link); margin-right: 1.5rem; }
+    @supports (gap: 1rem) { nav.tools a { margin-right: 0; } }
+
+    /* ============================================================
+       LINKS
+       ============================================================ */
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease;
+    }
+    a:hover, a:focus { color: var(--link-hover); border-bottom-color: currentColor; }
+    a:focus-visible { outline: 2px solid var(--link-hover); outline-offset: 2px; border-radius: 1px; }
+
+    /* ============================================================
+       SECTIONS / HEADINGS
+       ============================================================ */
+    section { margin: 3.5rem 0; }
+
+    h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: var(--ink);
+      letter-spacing: 0.005em;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 3rem;
+      height: 1px;
+      background: var(--rubric);
+      margin-top: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin: 2.4rem 0 1rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+      color: var(--ink);
+    }
+
+    p { margin: 0 0 1rem; }
+    em { font-style: italic; }
+    strong { font-weight: 700; }
+
+    /* Lead paragraph with drop cap */
+    .lead { font-size: 1.15rem; line-height: 1.62; color: var(--ink); }
+    .lead::first-letter {
+      float: left;
+      font-size: 3.6rem;
+      line-height: 0.85;
+      padding: 0.4rem 0.55rem 0 0;
+      font-weight: 400;
+      color: var(--rubric);
+    }
+
+    /* ============================================================
+       METADATA — flowing entries with inline commentary
+       ============================================================ */
+    .metadata-intro { color: var(--ink-soft); }
+
+    .entries {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .entries > li {
+      margin: 0 0 1.2rem;
+    }
+
+    .entry-evidence {
+      color: var(--ink-soft);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .entry-evidence em { color: var(--ink); font-style: italic; }
+    .entry-evidence .ref {
+      font-variant: small-caps;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      font-size: 0.82rem;
+    }
+
+    .entry-note {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      margin: 0.3rem 0 0;
+      padding-left: 1.2rem;
+      line-height: 1.45;
+    }
+    .entry-note em { color: var(--ink); font-style: italic; }
+
+    .letter-id { white-space: nowrap; }
+
+    /* ============================================================
+       FIGURE
+       ============================================================ */
+    figure { margin: 2rem 0; padding: 0; }
+    figure img {
+      width: 100%; height: auto; display: block;
+      border: 1px solid var(--rule); background: #fff;
+    }
+    figcaption {
+      font-size: 0.92rem; color: var(--ink-soft);
+      margin-top: 0.7rem; line-height: 1.5;
+    }
+    figcaption strong { color: var(--ink); font-weight: 700; }
+
+    /* ============================================================
+       BIBLIOGRAPHY
+       ============================================================ */
+    .bibliography {
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+    .bib-entry {
+      padding-left: 2em;
+      text-indent: -2em;
+      margin: 0 0 0.5rem;
+    }
+    .bib-entry a { word-break: break-word; }
+
+    /* ============================================================
+       DOWNLOADS
+       ============================================================ */
+    .downloads { list-style: none; padding: 0; margin: 1rem 0; }
+    .downloads li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--rule-soft);
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    }
+    .downloads li:last-child { border-bottom: none; }
+    .downloads .desc { color: var(--ink-soft); font-size: 0.92rem; flex: 1 1 16em; }
+    .downloads .filetype {
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-faint); font-variant-numeric: lining-nums;
+    }
+
+    /* ============================================================
+       CODE / NOTICE / ORNAMENT / FOOTER
+       ============================================================ */
+    pre {
+      background: var(--code-bg);
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      border-left: 2px solid var(--rule);
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      font-feature-settings: 'liga' 0;
+      color: var(--ink);
+      margin: 1rem 0;
+    }
+    code:not(pre code) {
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      font-size: 0.85em; background: var(--code-bg);
+      padding: 0.1em 0.35em; border-radius: 2px;
+    }
+
+    .notice {
+      padding: 1.1rem 1.3rem;
+      background: var(--paper-tint);
+      border-left: 3px solid var(--rubric);
+      font-size: 0.95rem; line-height: 1.55;
+      margin: 1.5rem 0;
+    }
+    .notice p { margin: 0; }
+    .notice p + p { margin-top: 0.5rem; }
+
+    .cast {
+      padding: 1rem 1.3rem;
+      background: var(--paper-tint);
+      border-left: 3px solid var(--rule);
+      font-size: 0.95rem; line-height: 1.55;
+      margin: 1.5rem 0;
+    }
+    .cast h4 {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-faint);
+      margin: 0 0 0.6rem;
+    }
+    .cast p { margin: 0.3rem 0; }
+    .cast em { font-style: italic; }
+
+    .ornament {
+      text-align: left;
+      color: var(--ink-faint);
+      font-size: 1.1rem;
+      letter-spacing: 0.4em;
+      margin: 3rem 0;
+    }
+
+    footer {
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--rule);
+      margin-top: 5rem;
+      padding: 2rem 0 4rem;
+      line-height: 1.55;
+    }
+    footer p { margin: 0.3rem 0; }
+
+    @media (max-width: 600px) {
+      html { font-size: 17px; }
+      body { padding: 0 1.1rem; }
+      header { padding: 3rem 0 1.5rem; }
+      h1 { font-size: 1.85rem; }
+      h2 { font-size: 1.3rem; }
+      .lead::first-letter { font-size: 3rem; padding: 0.3rem 0.4rem 0 0; }
+      section { margin: 2.8rem 0; }
+    }
+
+    @media print {
+      body { padding: 0; background: white; color: black; }
+      a { color: black; text-decoration: underline; }
+      nav.tools, .ornament, footer { display: none; }
+      h2::after { background: black; }
+    }
+
+    .sc { font-variant: small-caps; letter-spacing: 0.04em; }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="epigraph">
+    haec scripsi seu dictavi<br>
+    apposita secunda mensa apud Vestorium.
+    <cite>— Cicero, <em>ad Atticum</em> 14.21.4</cite>
+  </p>
+
+  <h1>Can we see hints of dictation in the language of Cicero’s letters?</h1>
+
+  <p class="byline"><strong>Thomas Kelly</strong> · University of Cambridge</p>
+  <p class="venue"><em>Writing from the Margins</em>, Durham University · 15 May 2026</p>
+
+  <nav class="tools" aria-label="page sections">
+    <a href="#overview">Overview</a>
+    <a href="#metadata">Letter metadata</a>
+    <a href="#figure">Figure&nbsp;1</a>
+    <a href="#bibliography">Bibliography</a>
+    <a href="#materials">Materials</a>
+    <a href="#cite">Cite</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="overview">
+  <h2>Overview</h2>
+
+  <p class="lead">
+    This page accompanies a short talk asking whether dictation leaves a detectable
+    linguistic signature in Cicero’s letters <em>ad Atticum</em>. Sixty-five letters
+    can be classified, on internal evidence, as either written by Cicero’s own hand
+    (<span class="sc">auto</span>, n&nbsp;=&nbsp;46) or dictated to a scribe
+    (<span class="sc">dict</span>, n&nbsp;=&nbsp;19). The talk presents lexical,
+    morphological, and syntactic features that distinguish the two groups, and uses
+    the resulting profile to make tentative inferences about the remainder of the
+    corpus.
+  </p>
+
+  <p>
+    The conference handout, the underlying letter metadata, and replication code &amp;
+    data are all available below.
+  </p>
+
+  <p style="margin-top: 1.4rem;">
+    <a href="assets/handout.pdf"><strong>Download the conference handout (PDF)</strong></a>
+    &nbsp;·&nbsp;
+    <a href="#materials">All materials</a>
+  </p>
+</section>
+
+<div class="ornament">·  ·  ·</div>
+
+<section id="metadata">
+  <h2>Letter metadata</h2>
+
+  <p class="metadata-intro">
+    The labelled corpus is derived from internal evidence within Cicero’s letters
+    <em>ad Atticum</em>: explicit metalinguistic statements about handwriting or
+    dictation, and inferences from physical or temporal context. Letters are listed
+    by Vulgate numbering. <strong>Each letter ID links to the full text on the
+    <a href="https://scaife.perseus.org/library/urn:cts:latinLit:phi0474.phi057/">Scaife
+    Viewer</a>;</strong> section references inside an evidence quotation are also
+    deep-linked to the precise passage.
+  </p>
+
+  <h3>Table 1 · Autograph letters</h3>
+
+  <ul class="entries">
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:1.1/">Att. 1.1–2.22</a></h4>
+      <p class="entry-evidence">
+        <a class="ref" href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:2.23.1/">2.23.1</a>:
+        <em>numquam ante arbitror te epistulam meam legisse nisi mea manu scriptam.</em>
+      </p>
+      <p class="entry-note">Cicero states that 2.23 is the first letter not written in his own hand. The strong implication is that all — or at least the vast majority — of earlier letters were autographed. See §4 of the paper for discussion of 1.10 as an outlier.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:8.2/">Att. 8.2</a></h4>
+      <p class="entry-evidence">
+        <a class="ref" href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:8.2.4/">8.2.4</a>:
+        <em>ego xiii Kalend., cum eadem lucerna hanc epistulam scripsissem qua inflammaram tuam.</em>
+      </p>
+      <p class="entry-note">Cicero describes writing by lamplight, strongly implying autograph composition.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:11.24/">Att. 11.24</a> <small>(second part)</small></h4>
+      <p class="entry-evidence">
+        <a class="ref" href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:11.24.2/">11.24.2</a>:
+        <em>sed ad meam manum redeo.</em>
+      </p>
+      <p class="entry-note">Cicero flags that he is returning to using his own hand, in order to discuss confidential material.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:12.32/">Att. 12.32</a></h4>
+      <p class="entry-evidence"><em>haec ad te mea manu.</em></p>
+      <p class="entry-note">Explicit statement of handwriting.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:13.28/">Att. 13.28.4</a></h4>
+      <p class="entry-evidence"><em>hoc manu mea.</em></p>
+      <p class="entry-note">Explicit statement of handwriting for the final section.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:14.22/">Att. 14.22</a></h4>
+      <p class="entry-evidence"><em>certior a Pilia factus mitti ad te Idibus tabellarios statim hoc nescio quid exaravi.</em></p>
+      <p class="entry-note">The verb <em>exaravi</em> (‘scratched out’) implies autography.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:15.20/">Att. 15.20</a></h4>
+      <p class="entry-evidence"><em>hanc putavi mea manu scribendam, itaque feci.</em></p>
+      <p class="entry-note">Explicit statement of handwriting.</p>
+    </li>
+
+  </ul>
+
+  <h3>Table 2 · Explicitly dictated letters</h3>
+
+  <ul class="entries">
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:2.23/">Att. 2.23</a></h4>
+      <p class="entry-evidence"><em>numquam ante arbitror te epistulam meam legisse nisi mea manu scriptam … haec dictavi.</em></p>
+      <p class="entry-note">Dictated while walking. Explicit contrast with previous autograph letters.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:4.16/">Att. 4.16</a></h4>
+      <p class="entry-evidence"><em>occupationum mearum vel hoc signum erit quod epistula librari manu est.</em></p>
+      <p class="entry-note">Explicit statement: letter in a scribe’s hand.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:5.17/">Att. 5.17</a></h4>
+      <p class="entry-evidence"><em>hanc epistulam dictavi sedens in raeda.</em></p>
+      <p class="entry-note">Explicitly dictated from a carriage.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:7.13a/">Att. 7.13A</a></h4>
+      <p class="entry-evidence"><em>si scriberem ipse, longior epistula fuisset, sed dictavi propter lippitudinem.</em></p>
+      <p class="entry-note">Explicitly dictated due to eye trouble.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:8.12/">Att. 8.12</a></h4>
+      <p class="entry-evidence"><em>dictare tamen hanc epistulam malui.</em></p>
+      <p class="entry-note">Explicitly dictated due to eye trouble.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:8.13/">Att. 8.13</a></h4>
+      <p class="entry-evidence"><em>lippitudinis meae signum tibi sit librari manus.</em></p>
+      <p class="entry-note">Explicitly scribal hand.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:10.3a/">Att. 10.3A</a></h4>
+      <p class="entry-evidence"><em>alteram tibi eodem die hanc epistulam dictavi.</em></p>
+      <p class="entry-note">Explicitly dictated.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:14.21/">Att. 14.21</a></h4>
+      <p class="entry-evidence"><em>haec scripsi seu dictavi apposita secunda mensa apud Vestorium.</em></p>
+      <p class="entry-note">Explicitly dictated over dinner.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:16.15/">Att. 16.15</a></h4>
+      <p class="entry-evidence"><em>noli putare pigritia me facere quod non mea manu scribam.</em></p>
+      <p class="entry-note">Explicit statement: not in Cicero’s own hand.</p>
+    </li>
+
+  </ul>
+
+  <h3>Table 3 · Dictated letters inferred from context</h3>
+
+  <ul class="entries">
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:4.9/">Att. 4.9</a></h4>
+      <p class="entry-evidence"><em>eo die Neapoli apud Paetum. a. d. iiii Kal. Mai. iens in Pompeianum bene mane haec scripsi.</em></p>
+      <p class="entry-note">Written while travelling.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:4.10/">Att. 4.10</a></h4>
+      <p class="entry-evidence"><em>ad eum postridie mane vadebam cum haec scripsi.</em></p>
+      <p class="entry-note">Written while travelling.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:5.12/">Att. 5.12</a></h4>
+      <p class="entry-evidence"><em>plura scribam ad te cum constitero; nunc eram plane in medio mari.</em></p>
+      <p class="entry-note">Written while at sea.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:6.4/">Att. 6.4</a></h4>
+      <p class="entry-evidence"><em>haec festinans scripsi in itinere atque agmine.</em></p>
+      <p class="entry-note">Written while travelling.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:10.3/">Att. 10.3</a></h4>
+      <p class="entry-evidence">10.3A contrasts this letter with one written <em>mea manu</em> the previous day.</p>
+      <p class="entry-note">Inferred from the contrast in the subsequent letter.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:11.24/">Att. 11.24.1</a></h4>
+      <p class="entry-evidence">
+        <a class="ref" href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:11.24.2/">11.24.2</a>:
+        <em>sed ad meam manum redeo.</em>
+      </p>
+      <p class="entry-note">See autograph table (Table 1).</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:13.28/">Att. 13.28.1–3</a></h4>
+      <p class="entry-evidence">
+        <a class="ref" href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:13.28.4/">13.28.4</a>:
+        <em>hoc mea manu.</em>
+      </p>
+      <p class="entry-note">The final section is flagged as written in Cicero’s own hand.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:14.5/">Att. 14.5</a></h4>
+      <p class="entry-evidence"><em>haec scripsi ad te proficiscens Astura.</em></p>
+      <p class="entry-note">Written while travelling.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:14.6/">Att. 14.6</a></h4>
+      <p class="entry-evidence"><em>haec ad te scripsi apposita secunda mensa.</em></p>
+      <p class="entry-note">Written during dinner.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:14.12/">Att. 14.12</a></h4>
+      <p class="entry-evidence"><em>haec conscripsi x Kal., accubans apud Vestorium.</em></p>
+      <p class="entry-note">Written while reclining at dinner.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:14.16/">Att. 14.16</a></h4>
+      <p class="entry-evidence"><em>conscendens ab hortis Cluvianis in phaselum epicopum has dedi litteras.</em></p>
+      <p class="entry-note">Written while boarding a boat.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:16.1/">Att. 16.1</a></h4>
+      <p class="entry-evidence"><em>postridie iens ad Brutum in Nesidem haec scripsi.</em></p>
+      <p class="entry-note">Written while travelling.</p>
+    </li>
+
+    <li>
+      <h4 class="letter-id"><a href="https://scaife.perseus.org/reader/urn:cts:latinLit:phi0474.phi057.perseus-lat1:16.7/">Att. 16.7</a></h4>
+      <p class="entry-evidence"><em>haec scripsi navigans cum Pompeianum accederem.</em></p>
+      <p class="entry-note">Written while at sea.</p>
+    </li>
+
+  </ul>
+
+  <p style="margin-top: 2rem;">
+    Beyond these labelled groups, a further 368 letters are unclassified. They form the
+    <span class="sc">rest</span> category in Figure&nbsp;1 below — a pool against which
+    the <span class="sc">auto</span>&nbsp;/&nbsp;<span class="sc">dict</span> signature
+    is tested.
+  </p>
+
+  <div class="cast">
+    <h4>Dramatis personae</h4>
+    <p><strong><a href="https://en.wikipedia.org/wiki/Tiro_(slave)">Tiro</a></strong> — Cicero’s freedman and long-serving secretary; the scribe in passages 2 and 3 of the handout.</p>
+    <p><strong><a href="https://en.wikipedia.org/wiki/Titus_Pomponius_Atticus">Atticus</a></strong> — Cicero’s lifelong friend and the addressee of the corpus analysed here.</p>
+    <p><strong>Spintharus</strong> — another scribe in Cicero’s household, mentioned in <em>ad Att.</em> 13.25; slower than Tiro, taking dictation ‘syllable by syllable’.</p>
+  </div>
+
+</section>
+
+<div class="ornament">·  ·  ·</div>
+
+<section id="figure">
+  <h2>Figure 1 · Syntactic separation</h2>
+
+  <p>
+    Distribution of <strong>LP</strong> (residualised proportion of sentences with the
+    main predicate in the final third) for the three letter groups. LP is residualised
+    on letter length to remove the trivial confound that longer letters have more
+    sentences; the <span class="sc">auto</span> group forms the regression baseline,
+    so positive values indicate a more periodic profile than expected for a letter of
+    that length.
+  </p>
+
+  <figure>
+    <img src="assets/figure1-1.png" alt="Density plot showing the distribution of LP values for AUTO, DICT, and REST letter groups. AUTO peaks slightly above zero; DICT peaks around -0.10; REST is broadly distributed.">
+    <figcaption>
+      <strong>Figure&nbsp;1.</strong> KDE density of LP across letter groups, with
+      letter-level points below.
+      <span class="sc">auto</span> (n&nbsp;=&nbsp;46) peaks just above zero;
+      <span class="sc">dict</span> (n&nbsp;=&nbsp;19) peaks around −0.10;
+      <span class="sc">rest</span> (n&nbsp;=&nbsp;368) is broadly distributed.
+      <a href="assets/figure1.pdf">PDF version</a>.
+    </figcaption>
+  </figure>
+</section>
+
+<div class="ornament">·  ·  ·</div>
+
+<section id="bibliography">
+  <h2>Bibliography</h2>
+
+  <p>
+    Full bibliography from the underlying paper (Kelly, in preparation). External links
+    go where I can confidently provide them; the rest are plain text.
+  </p>
+
+  <div class="bibliography">
+
+    <p class="bib-entry">Adams, J. N. (ed.) 2016. <em>An Anthology of Informal Latin, 200 BC–AD 900: Fifty Texts with Translations and Linguistic Commentary</em>. Cambridge.</p>
+    <p class="bib-entry">Angella, S. 2023. ‘A Study of Non-V-Final Clauses in Cicero’s Letters to Atticus’. MA thesis, Università degli Studi di Padova.</p>
+    <p class="bib-entry">Bagnall, R. S., and Cribiore, R. 2006. <em>Women’s Letters from Ancient Egypt</em>. Ann Arbor.</p>
+    <p class="bib-entry">Bahr, G. J. 1966. ‘Paul and Letter Writing in the Fifth Century’. <em>The Catholic Biblical Quarterly</em> 28: 465–477.</p>
+    <p class="bib-entry">Bentein, K. 2022. ‘The Textualization of Women’s Letters from Roman Egypt: Analyzing Historical Framing Practices from a Multi-Modal Point of View’, in K. Bentein and Y. Amory (eds), <em>Novel Perspectives on Communication Practices in Antiquity</em>. Leiden.</p>
+    <p class="bib-entry">Berruto, G. 1987. ‘Lingua, dialetto, diglossia, dilalia’, in G. Holtus and J. Kramer (eds), <em>Romania et Slavia adriatica. Festschrift für Žarko Muljačić</em>. Hamburg, 57–81.</p>
+    <p class="bib-entry">Brunt, P. A. 1953. ‘Cicero: <em>Ad Atticum</em> 2.24’. <em>Classical Quarterly</em> 3: 62–64.</p>
+    <p class="bib-entry">Capponi, L. 2016. ‘C. Calpurnius Proculus and an Example of Greek Stenography under Augustus’, in T. Derda, A. Lajtar and J. Urbanik (eds), <em>Proceedings of the 27th International Congress of Papyrology, Warsaw, 29 July–3 August 2013</em>. Warsaw, 1709–23.</p>
+    <p class="bib-entry">Coogan, J., Moss, C. R., and Howley, J. A. (eds) 2025. <em>Writing, Enslavement, and Power in the Roman Mediterranean, 100 BCE–300 CE</em>. Oxford.</p>
+    <p class="bib-entry">Culpeper, J., and Archer, D. 2008. ‘Requests and Directness in Early Modern English Trial Proceedings and Play Texts, 1640–1760’, in <em>Speech Acts in the History of English</em>: 45–84.</p>
+    <p class="bib-entry">Culpeper, J., and Kytö, M. 2000. ‘Data in Historical Pragmatics: Spoken Interaction (Re)cast as Writing’. <em>Journal of Historical Pragmatics</em> 1: 175–199.</p>
+    <p class="bib-entry">Dickey, E. 2012. ‘How to Say “Please” in Classical Latin’. <em>The Classical Quarterly</em> 62: 731–748.</p>
+    <p class="bib-entry">Elder, O., and Mullen, A. 2019. <em>The Language of Roman Letters: Bilingual Epistolography from Cicero to Fronto</em>. Cambridge.</p>
+    <p class="bib-entry">Freeman, M. A. 2023. ‘The Hands That Write’. PhD thesis, Duke University.</p>
+    <p class="bib-entry">Gould, J. D. 1978. ‘How Experts Dictate’. <em>Journal of Experimental Psychology: Human Perception and Performance</em> 4(4): 648–61.</p>
+    <p class="bib-entry">Halla-aho, H. 2018. ‘Scribes in Private Letter Writing: Linguistic Perspectives’, in <em>Scribal Repertoires in Egypt from the New Kingdom to the Early Islamic Period</em>. Oxford, 207–239.</p>
+    <p class="bib-entry">Hilmarsdóttir, S. H. 2025. ‘Choosing How to Say “a Letter” in a Letter: Variation between <em>epistula</em> and <em>litterae</em> in the Corpus of Ciceronian Epistolography’. <em>Journal of Historical Sociolinguistics</em> 11(1): 267–93.</p>
+    <p class="bib-entry">Hilmarsdóttir, S. H. forthcoming. ‘<em>qualis homo, talis oratio</em>: Language Choices, Self-Positioning and Social Background in Latin Letters from the Late Republic’. PhD thesis, Cambridge.</p>
+    <p class="bib-entry">Hoover, D. 2014. ‘Modes of Composition in Henry James: Dictation, Style, and <em>What Maisie Knew</em>’. <em>Henry James Review</em> 35: 257–77.</p>
+    <p class="bib-entry">Horsfall, N. 1995. ‘Rome without Spectacles’. <em>Greece &amp; Rome</em> 42: 49–56.</p>
+    <p class="bib-entry">Howley, J. A. 2025. ‘Despotics’, in J. Coogan, C. R. Moss and J. A. Howley (eds), <em>Writing, Enslavement, and Power in the Roman Mediterranean, 100 BCE–300 CE</em>. Oxford, 24–43.</p>
+    <p class="bib-entry">Kearey, T. 2025. ‘Editing’, in J. Coogan, C. R. Moss and J. A. Howley (eds), <em>Writing, Enslavement, and Power in the Roman Mediterranean, 100 BCE–300 CE</em>. Oxford, 186–204.</p>
+    <p class="bib-entry">Kirsh, E. 2024. ‘“Etched into the Soul”: The Education of Shorthand-Writers in Late Antiquity’. <em>Journal of Roman Studies</em> 114: 61–84.</p>
+    <p class="bib-entry">Koch, P., and Oesterreicher, W. 1985. ‘Sprache der Nähe — Sprache der Distanz. Mündlichkeit und Schriftlichkeit im Spannungsfeld von Sprachtheorie und Sprachgeschichte’. <em>Romanistisches Jahrbuch</em> 36: 15–43.</p>
+    <p class="bib-entry">Koch, P., and Oesterreicher, W. 2011. <em>Gesprochene Sprache in der Romania: Französisch, Italienisch, Spanisch</em>. Berlin.</p>
+    <p class="bib-entry">Kohnen, T. 2000. ‘Explicit Performatives in Old English: A Corpus-Based Study of Directives’. <em>Journal of Historical Pragmatics</em> 1: 301–321.</p>
+    <p class="bib-entry">Kroon, C. H. M. 1995. <em>Discourse Particles in Latin: A Study of </em>nam<em>, </em>enim<em>, </em>autem<em>, </em>vero<em> and </em>at. Amsterdam.</p>
+    <p class="bib-entry">Kroon, C. H. M. 1998. ‘A Framework for the Description of Latin Discourse Markers’. <em>Journal of Pragmatics</em> 30(2): 205–223.</p>
+    <p class="bib-entry">Londa, C. 2025. ‘Letters’, in J. Coogan, C. R. Moss and J. A. Howley (eds), <em>Writing, Enslavement, and Power in the Roman Mediterranean, 100 BCE–300 CE</em>. Oxford.</p>
+    <p class="bib-entry">de Marneffe, M.-C., et al. 2021. ‘Universal Dependencies’. <em>Computational Linguistics</em> 47: 255–308.</p>
+    <p class="bib-entry">McLachlan, K. 2011. ‘Word Order in Cicero’s Letters to Atticus: A Multivariate Approach’. PhD thesis, University of Cape Town.</p>
+    <p class="bib-entry">Meier, C. 1961. ‘Zur Chronologie und Politik in Caesars erstem Konsulat’. <em>Historia: Zeitschrift für Alte Geschichte</em> 10(1): 68–98.</p>
+    <p class="bib-entry">Morello, R., and Morrison, A. D. (eds) 2007. <em>Ancient Letters: Classical and Late Antique Epistolography</em>. Oxford.</p>
+    <p class="bib-entry">Moss, C. R. 2021a. ‘Between the Lines: Looking for the Contributions of Enslaved Literate Laborers in a Second-Century Text (P. Berol. 11632)’. <em>Studies in Late Antiquity</em> 5(3): 432–452.</p>
+    <p class="bib-entry">Moss, C. R. 2021b. ‘Fashioning Mark: Early Christian Discussions about the Scribe and Status of the Second Gospel’. <em>New Testament Studies</em> 67(2): 181–204.</p>
+    <p class="bib-entry">Moss, C. R. 2023. ‘The Secretary: Enslaved Workers, Stenography, and the Production of Early Christian Literature’. <em>The Journal of Theological Studies</em> 74: 20–56.</p>
+    <p class="bib-entry">Ochab, J. K., et al. 2025. ‘StylOch at PAN: Gradient-Boosted Trees with Frequency-Based Stylometric Features’. <em>arXiv</em> 2507.12064. <a href="https://arxiv.org/abs/2507.12064">arxiv.org/abs/2507.12064</a></p>
+    <p class="bib-entry">O’Sullivan, N. 2018. ‘Manuscript Evidence for Alphabet-Switching in the Works of Cicero: Common Nouns and Adjectives’. <em>The Classical Quarterly</em> 68: 498–516.</p>
+    <p class="bib-entry">Panegyres, K. 2019. ‘A Neglected Arabic Testimonium on Greek Tachygraphy with a New Fragment of Galen’. <em>Göttinger Forum für Altertumswissenschaft</em> 22: 167–70.</p>
+    <p class="bib-entry">Powell, J. 2013. ‘Cicero’s Style’, in C. E. Steel (ed.), <em>The Cambridge Companion to Cicero</em>. Cambridge, 41–72.</p>
+    <p class="bib-entry">Qi, P., Zhang, Y., Zhang, Y., Bolton, J., and Manning, C. D. 2020. ‘Stanza: A Python Natural Language Processing Toolkit for Many Human Languages’, in <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics: System Demonstrations</em>, 101–108. <a href="https://aclanthology.org/2020.acl-demos.14/">aclanthology.org/2020.acl-demos.14</a></p>
+    <p class="bib-entry">Raible, W. 1992. ‘The Pitfalls of Subordination: Subject and Object Clauses between Latin and Romance’, in O. Szemerényi, B. Brogyanyi and R. Lipp (eds), <em>Historical Philology: Greek, Latin and Romance: Papers in Honor of Oswald Szemerényi II</em>. Amsterdam.</p>
+    <p class="bib-entry">Richards, E. R. 1991. <em>The Secretary in the Letters of Paul</em>. Tübingen.</p>
+    <p class="bib-entry">Richards, E. R. 2004. <em>Paul and First-Century Letter Writing: Secretaries, Composition and Collection</em>. Downers Grove, IL.</p>
+    <p class="bib-entry">Rühl, M. 2018. <em>Ciceros Korrespondenz als Medium literarischen und gesellschaftlichen Handelns</em>. Boston.</p>
+    <p class="bib-entry">Sarri, A. 2018. <em>Material Aspects of Letter Writing in the Graeco-Roman World: c. 500 BC – c. AD 300</em>. Berlin.</p>
+    <p class="bib-entry">Selig, M. 2022. ‘Diamesic Variation’, in A. Ledgeway and M. Maiden (eds), <em>The Cambridge Handbook of Romance Linguistics</em>. Cambridge.</p>
+    <p class="bib-entry">Shackleton Bailey, D. R. (ed.) 1965. <em>Cicero’s Letters to Atticus</em>. Cambridge.</p>
+    <p class="bib-entry">Shackleton Bailey, D. R. (ed.) 2000. <em>Cicero: Select Letters</em>. Oxford.</p>
+    <p class="bib-entry">Skeat, T. C. 1957. <em>The Use of Dictation in Ancient Book-Production</em>. London.</p>
+    <p class="bib-entry">Small, J. P. 1997. <em>Wax Tablets of the Mind: Cognitive Studies of Memory and Literacy in Classical Antiquity</em>. London.</p>
+    <p class="bib-entry">Stamatatos, E. 2017. ‘Authorship Attribution Using Text Distortion’, in <em>Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics</em>, 1138–49.</p>
+    <p class="bib-entry">Swain, S. 2002. ‘Bilingualism in Cicero? The Evidence of Code-Switching’, in <em>Bilingualism in Ancient Society: Language Contact and the Written Text</em>.</p>
+    <p class="bib-entry">Tang, X. 2024. ‘Author Identification of Literary Works Based on Text Analysis and Deep Learning’. <em>Heliyon</em> 10(3).</p>
+    <p class="bib-entry">Taylor, L. R. 1950. ‘The Date and the Meaning of the Vettius Affair’. <em>Historia: Zeitschrift für Alte Geschichte</em> 1(1): 45–51.</p>
+    <p class="bib-entry">Taylor, L. R. 1954. ‘On the Date of <em>Ad Atticum</em> 2.24’. <em>Classical Quarterly</em> 4: 181–82.</p>
+    <p class="bib-entry">Verhoogt, A. 2009. ‘Dictating Letters in Greek and Roman Egypt from a Comparative Perspective’. <a href="https://sites.lsa.umich.edu/wp-content/uploads/sites/235/2015/02/dictating1.pdf">sites.lsa.umich.edu/…/dictating1.pdf</a></p>
+    <p class="bib-entry">White, P. 2010. <em>Cicero in Letters: Epistolary Relations of the Late Republic</em>. Oxford.</p>
+
+  </div>
+</section>
+
+<div class="ornament">·  ·  ·</div>
+
+<section id="materials">
+  <h2>Materials</h2>
+
+  <p>
+    The handout, full letter metadata, methodological appendix, and replication code &amp;
+    data are all available below. Code in the replication archive is released under the
+    MIT licence; data is released under CC-BY 4.0; the texts of Cicero’s letters used in
+    the analysis come from the Perseus Digital Library and remain under their licensing
+    terms. Please cite the talk as set out under <a href="#cite">Cite</a>.
+  </p>
+
+  <ul class="downloads">
+    <li>
+      <span><strong><a href="assets/handout.pdf">Conference handout</a></strong>
+        <span class="desc">— eight passages with translations, the linguistic-features tables, and Figure 1 in summary form.</span>
+      </span>
+      <span class="filetype">PDF · 50&nbsp;KB</span>
+    </li>
+    <li>
+      <span><strong><a href="assets/letter-metadata.pdf">Letter metadata</a></strong>
+        <span class="desc">— all three classification tables in printable form.</span>
+      </span>
+      <span class="filetype">PDF · 75&nbsp;KB</span>
+    </li>
+    <li>
+      <span><strong><a href="assets/methodological-appendix.pdf">Methodological appendix</a></strong>
+        <span class="desc">— Tables 4–8 from the paper: corrected enrichment, BH correction, permutation tests, and chronological windows.</span>
+      </span>
+      <span class="filetype">PDF · 154&nbsp;KB</span>
+    </li>
+    <li>
+      <span><strong><a href="assets/replication.zip">Replication code &amp; data</a></strong>
+        <span class="desc">— Python pipeline, all CSV inputs, and a guide to running the full analysis end-to-end.</span>
+      </span>
+      <span class="filetype">ZIP · 1.1&nbsp;MB</span>
+    </li>
+    <li>
+      <span><strong><a href="assets/figure1.pdf">Figure 1</a></strong>
+        <span class="desc">— vector PDF of the density plot, suitable for citation.</span>
+      </span>
+      <span class="filetype">PDF · 44&nbsp;KB</span>
+    </li>
+  </ul>
+
+  <h3>OSF</h3>
+  <div class="notice">
+    <p>
+      The full project archive is on the Open Science Framework at
+      <a href="https://osf.io/vjtmz/overview?view_only=88fa41f3369f420b8ebef3f2e358048b"><strong>osf.io/vjtmz</strong></a>.
+      The project is currently held in anonymised view-only state while the underlying
+      paper is under peer review, so the page itself displays as ‘Anonymous’ even though
+      the talk is non-anonymous; this will be lifted on publication.
+    </p>
+  </div>
+</section>
+
+<div class="ornament">·  ·  ·</div>
+
+<section id="cite">
+  <h2>How to cite</h2>
+
+  <p>If you would like to refer to the talk before the underlying paper appears, please use:</p>
+
+  <pre>@unpublished{kelly2026dictation,
+  author    = {Kelly, Thomas},
+  title     = {Can we see hints of dictation in the language
+               of Cicero's letters?},
+  note      = {Paper presented at \emph{Writing from the Margins},
+               Durham University, 15 May 2026},
+  year      = {2026},
+  url       = {https://[your-github-username].github.io/[repo-name]/}
+}</pre>
+
+  <p>A formal reference for the underlying paper will be added once it is published.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    Companion site for a talk by <strong>Thomas Kelly</strong> (University of Cambridge),
+    given at <em>Writing from the Margins</em>, Durham University, 15 May 2026.
+  </p>
+  <p>
+    Source texts via the
+    <a href="https://scaife.perseus.org/library/urn:cts:latinLit:phi0474.phi057/">Scaife Viewer</a>
+    (Perseus Digital Library / Open Greek &amp; Latin).
+    Set in <a href="https://fonts.google.com/specimen/Cardo">Cardo</a> by David Perry.
+  </p>
+  <p style="margin-top: 1rem;">
+    Last updated: <time datetime="2026-05-10">10 May 2026</time>.
+  </p>
+</footer>
+
+</body>
+</html>
